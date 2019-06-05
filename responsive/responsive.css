@@ -1,1 +1,5 @@
-hi
+body {
+   background-image: url("software.png");
+   background-repeat: no-repeat;
+   background-size: cover;
+}
