@@ -1,5 +1,7 @@
-body {
-   background-image: url("software.png");
-   background-repeat: no-repeat;
-   background-size: cover;
-}
+.software {width:128px; height:240px;
+ 
+              @media only screen and (min-width: 1200px);
+              background: url("software.png") 0px 0px;
+ 
+ 
+             
