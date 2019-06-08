@@ -4,16 +4,41 @@
               background: url("software.png") 0px 0px;
  
 
-              @media only screen and (max-width: 1100px) and (min-width: 1200px);
+              @media only screen and (min-width: 1100px) and (max-width: 1200px);
               background: url("software.png") 129px 0px;
  
  
-              @media only screen and (max-width: 1000px) and (min-width: 1100px);
+              @media only screen and (min-width: 1000px) and (max-width: 1100px);
               background: url("software.png") 255px 0px;
  
  
-              @media only screen and (max-width: 900px) and (min-width: 1000px);
+              @media only screen and (min-width: 900px) and (max-width: 1000px);
               background: url("software.png") 383px 0px;
+              
+              @media only screen and (min-width: 800px) and (max-width: 900px);
+              background: url("software.png") 512px 0px;
+ 
+ 
+              @media only screen and (min-width: 700px) and (max-width: 800px);
+              background: url("software.png") 0px -241px;
+ 
+ 
+              @media only screen and (min-width: 600px) and (max-width: 700px);
+              background: url("software.png") 129px -241px;
+ 
+ 
+              @media only screen and (min-width: 500px) and (max-width: 600px);
+              background: url("software.png") 255px -241px;
+ 
+ 
+              @media only screen and (min-width: 400px) and (max-width: 500px);
+              background: url("software.png") 383px -241px;
+ 
+ 
+              @media only screen and (max-width: 400px);
+              background: url("software.png") 512px -241px;
+ 
+}
  
  
    
