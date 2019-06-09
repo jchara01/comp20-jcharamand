@@ -1,1 +1,18 @@
+body {
+    background-color: snow;
+    color: black;
+    font-size: 14px;
+    font-family: sans-serif;
+    font-weight: normal;
+    margin-left: 30px;
+    margin-right: 150px;
+}
 
+video{
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: auto;
+    height: auto;
+}
