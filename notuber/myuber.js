@@ -6,5 +6,5 @@ var map;
         });
       }
 
-src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" ;
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_IfcaaMVOEL4s8tVHPA6K5C4gD3joeTo&callback=initMap" ;
 async defer;
