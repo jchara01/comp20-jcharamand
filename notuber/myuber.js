@@ -20,8 +20,8 @@ function initMap() {
 
         var features = [
         {
-                position: new google.maps.LatLng(42.3453, -71.0464)
-                type: 'car';
+                position: new google.maps.LatLng(42.3453, -71.0464),
+                type: 'car'
         }
         ];
         
