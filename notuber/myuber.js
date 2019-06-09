@@ -12,26 +12,18 @@ function initMap() {
 
         document.add
   
-        var icons = {
-          car: {
-          icon: 'car.png'
-          }
-        };
-
         var features = [
         {
-                position: new google.maps.LatLng(42.3453, -71.0464),
-                type: 'car'
+                position: new google.maps.LatLng(42.3453, -71.0464)
         }
         ];
-        
-          
+
         for (var i = 0; i < features.length; i++) {
           var marker = new google.maps.Marker({
             position: features[i].position,
-            icon: icons[features[i].type].icon,
+            icon: 'car.png',
             map: map
           });
-        };
+          };
 
 }
