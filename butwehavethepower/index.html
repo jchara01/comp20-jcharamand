@@ -22,7 +22,7 @@
            lyrics.innerHTML = "<p>" + string + "<p>";
          }
 	
-	video.addEventListener("timeupdate", function() {
+	video.addEventListener("timeupdate", function(){
 		
         if (video.currentTime > 5 && video.currentTime < 9) {
             modifyText('Lisa: Come gather round, children');
@@ -72,9 +72,12 @@
 	else if (video.currentTime > 78 && video.currentTime < 80) {
             modifyText('They have the plant');
 	}
-	else (video.currentTime > 80 && video.currentTime < 83) {
+	else if  (video.currentTime > 80 && video.currentTime < 83) {
             modifyText('But we have the power.');
 	}
+	else{
+            modifyText('');
+	} , false);
 	
 	
 </script>
