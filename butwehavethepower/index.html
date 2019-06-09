@@ -15,10 +15,15 @@
 
 <script>
 	// Complete this section and create a CSS file named style.css
-	var subtitles = document.getElementById('subtitles');
-	for (var i = 0; i < video.textTracks.length; i++) {
-		viedo.textTracks = [];
-		video.textTracks = ['Lisa: Come gather round, children',
+	var video = document.getElementByTagname('video')[0];
+        var lyrics = document.getElementById('lyrics');
+	
+	video.addEventListener("timeupdate", function() {
+        if (video.currentTime > 5 && video.currentTime < 9) {
+            this.pause();
+	}
+	
+		'Lisa: Come gather round, children',
 		'It s high time ye learned',
 		'Bout a hero named Homer',
 		'And a devil named Burns.',
