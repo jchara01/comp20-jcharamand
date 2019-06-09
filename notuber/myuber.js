@@ -14,7 +14,7 @@ function initMap() {
   
         var icons = {
           car: {
-          icon: 'car.png';
+          icon: 'car.png'
           }
         };
 
@@ -23,6 +23,7 @@ function initMap() {
                 position: new google.maps.LatLng(42.3453, -71.0464)
                 type: 'car';
         }
+        ];
         
           
         for (var i = 0; i < features.length; i++) {
