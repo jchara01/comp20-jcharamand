@@ -1,27 +1,18 @@
-.subtitles-menu {
-    display:none;
-    position:absolute;
-    bottom:14.8%;
-    right:20px;
-    background:#666;
-    list-style-type:none;
-    margin:0;
-    padding:0;
-    width:100px;
-    padding:10px;
+body {
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 300;
 }
-
-.subtitles-menu li {
-    padding:0;
-    text-align:center;
+.bold {
+    font-style: bold;
 }
-
-.subtitles-menu li button {
-    border:none;
-    background:#000;
-    color:#fff;
-    cursor:pointer;
-    width:90%;
-    padding:2px 5px;
-    border-radius:2px;
+#movie_quotes {
+    text-align: center;
+}
+#title {
+    text-align: center;
+}
+video {
+    display: block;
+    margin: 0 auto;
+    width: 500px;
 }
