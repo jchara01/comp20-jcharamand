@@ -1,1 +1,4 @@
 # comp20-jcharamand / butwehavethepower
+
+This Lab consists of practicing using the DOM by creating a web page that annotates a video with text. There are two files: index.html and style.css. The way I approached this lab is by first of all watching the video and writing down the seconds in which each sentence runs through. I continued by adding an Eventlistener to the video in order to be able to track the current runtime of the video and displaying the corresponding sentence. It seems the majority of the work has been implemented correctly since the display seems correct. However, it is always possible that i have missed something that i did not implement perfectly. In order to complete the lab I had access to the Comp 20 piazza page, where I posted whatever inquiries I had. I also used google and resources provided by the professor on the Comp 20 web page quite offen to figure out the basic html and css syntax. The lab took me about 2 to 3 hours to complete.
+
