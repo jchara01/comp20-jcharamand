@@ -10,14 +10,12 @@
       jsonData = '[{"id":1,"content":"Do you really want to hurt me?","username":"Boy"},{"id":2,"content":"Do you really want to make me cry?","username":"George"}]';
       // Your code here......
       var reply = JSON.parse(jsonData);
-      displayText(reply);
 	    
       var messagesSec = document.getElementById("messages");
       function displayText(reply) {
-		for ("id"== 1; "id" < reply.length; "id"++) {
-           	   messagesSec.innerHTML += '<p>' + " " + 
-		   reply["id"].["content"] + "-" +
-		   reply["id"].["username"] + '</p>';
+		for (i = 0; i < reply.length; i ++) {
+           	   console.log(reply[i] + " => " + username[reply[i]]);
+		
       		}
        }
 
