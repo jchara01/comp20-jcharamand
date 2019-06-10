@@ -9,7 +9,8 @@
     function loadMessages() {
       jsonData = '[{"id":1,"content":"Do you really want to hurt me?","username":"Boy"},{"id":2,"content":"Do you really want to make me cry?","username":"George"}]';
       // Your code here......
-      var reply = JSON.parse(jsonData);    
+      var reply = JSON.parse(jsonData);
+      displayText(reply);
 	    
       var messagesSec = document.getElementById("messages");
       function displayText(reply) {
@@ -19,7 +20,7 @@
 		   reply[i].["username"] + '</p>';
       		}
        }
-       displayText(reply);
+
     }
 	    
   </script>
