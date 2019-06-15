@@ -25,11 +25,16 @@ function getUserLocation() {
 
 
 
-function initMap() {
+function initMap(jsonResponse) {
         map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: 42.352271, lng: -71.05524200000001},
+          center: user,
           zoom: 16
         });
+	
+	var userMarker = new google.maps.Marker({
+		position: user,
+		icon: 'userpin.png'
+	});
 
 
 
