@@ -1,7 +1,11 @@
 var map;
+var user;
 var userMarker;
+var userLat;
+var userLng;
 var infowindow = new google.maps.InfoWindow();
 var request = new XMLHttpRequest();
+var jsonResponse;
 
 
 function initMap() {
