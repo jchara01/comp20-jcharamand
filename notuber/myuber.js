@@ -1,4 +1,6 @@
 var map;
+var userMarker;
+var infowindow = new google.maps.InfoWindow();
 
 
 function initMap() {
