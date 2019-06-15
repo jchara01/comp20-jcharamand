@@ -1,6 +1,7 @@
 var map;
 var userMarker;
 var infowindow = new google.maps.InfoWindow();
+var request = new XMLHttpRequest();
 
 
 function initMap() {
