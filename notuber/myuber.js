@@ -11,7 +11,8 @@ function getUserLocation() {
 	navigator.geolocation.getCurrentPosition(function(position) {
 		userLat = position.coords.latitude;
 		userLng = position.coords.longitude;
-                request.open("POST", url, true, iXay9qIa);
+                request.open("POST", "https://hans-moleman.herokuapp.com/rides", true);
+		request.setRequestHeader(iXay9qIa, userLat, userLng);
                 request.send()
 		request.onreadystatechange = function() {
 			if (request.readyState == 4 && request.status == 200) {
