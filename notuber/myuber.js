@@ -9,7 +9,7 @@ var jsonResponse;
 var params;
 
 xhr.open("POST", "https://hans-moleman.herokuapp.com/rides", true);
-xhr.setRequestHeader(iXay9qIa, userLat, userLng);
+xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
 function getUserLocation() {
 	navigator.geolocation.getCurrentPosition(function(position) {
