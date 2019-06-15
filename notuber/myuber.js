@@ -8,14 +8,12 @@ var request = new XMLHttpRequest();
 var jsonResponse;
 
 function getUserLocation() {
-	//get my location
 	navigator.geolocation.getCurrentPosition(function(position) {
-		//update the variables and params which will be sent as a parameter to the server 
 		userLat = position.coords.latitude;
 		userLng = position.coords.longitude;
                 request.open("POST", "iXay9qIa", true);
                 request.send()
-		request.onreadystatechange = function() { //when request is completed and successful...
+		request.onreadystatechange = function() {
 			if (request.readyState == 4 && request.status == 200) {
 				jsonResponse = JSON.parse(request.responseText);
 				user = new google.maps.LatLng(userLat, userLng);
