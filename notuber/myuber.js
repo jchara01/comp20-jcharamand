@@ -6,6 +6,7 @@ var userLng;
 var infowindow = new google.maps.InfoWindow();
 var xhr = new XMLHttpRequest();
 var jsonResponse;
+var params;
 
 xhr.open("POST", "https://hans-moleman.herokuapp.com/rides", true);
 xhr.setRequestHeader(iXay9qIa, userLat, userLng);
@@ -14,7 +15,8 @@ function getUserLocation() {
 	navigator.geolocation.getCurrentPosition(function(position) {
 		userLat = position.coords.latitude;
 		userLng = position.coords.longitude;
-                xhr.send("username=iXay9qIa&lat=" + userLat + "&lng=" + userLng);
+		params = "username=iXay9qIa&lat=" + userLat + "&lng=" + userLng;
+                xhr.send(params);
 		xhr.onreadystatechange = function() {
 			if (xhr.readyState == 4 && xhr.status == 200) {
 				jsonResponse = JSON.parse(xhr.responseText);
