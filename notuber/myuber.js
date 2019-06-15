@@ -35,6 +35,7 @@ function initMap(jsonResponse) {
 		position: user,
 		icon: 'userpin.png'
 	});
+	userMarker.setMap(map);
 
 
 
