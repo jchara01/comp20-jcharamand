@@ -4,20 +4,20 @@ var userMarker;
 var userLat;
 var userLng;
 var infowindow = new google.maps.InfoWindow();
-var request = new XMLHttpRequest();
+var xhr = new XMLHttpRequest();
 var jsonResponse;
 
-request.open("POST", "https://hans-moleman.herokuapp.com/rides", true);
-request.setRequestHeader(iXay9qIa, userLat, userLng);
+xhr.open("POST", "https://hans-moleman.herokuapp.com/rides", true);
+xhr.setRequestHeader(iXay9qIa, userLat, userLng);
 
 function getUserLocation() {
 	navigator.geolocation.getCurrentPosition(function(position) {
 		userLat = position.coords.latitude;
 		userLng = position.coords.longitude;
-                request.send()
-		request.onreadystatechange = function() {
-			if (request.readyState == 4 && request.status == 200) {
-				jsonResponse = JSON.parse(request.responseText);
+                xhr.send("username=iXay9qIa&lat=" + userLat + "&lng=" + userLng);
+		xhr.onreadystatechange = function() {
+			if (xhr.readyState == 4 && xhr.status == 200) {
+				jsonResponse = JSON.parse(xhr.responseText);
 				user = new google.maps.LatLng(userLat, userLng);
 				initMap(jsonResponse);
 			}
