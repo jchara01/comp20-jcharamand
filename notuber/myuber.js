@@ -1,15 +1,19 @@
 var map;
+
 var user;
 var userMarker;
 var userLat;
 var userLng;
-var infowindow = new google.maps.InfoWindow();
-var xhr = new XMLHttpRequest();
-var jsonResponse;
 var params;
+var vehicles;
 
+var xhr = new XMLHttpRequest();
 xhr.open("POST", "https://hans-moleman.herokuapp.com/rides", true);
 xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+
+var infowindow = new google.maps.InfoWindow();
+
 
 function getUserLocation() {
 	navigator.geolocation.getCurrentPosition(function(position) {
@@ -19,9 +23,9 @@ function getUserLocation() {
                 xhr.send(params);
 		xhr.onreadystatechange = function() {
 			if (xhr.readyState == 4 && xhr.status == 200) {
-				jsonResponse = JSON.parse(xhr.responseText);
+				vehicles = JSON.parse(xhr.responseText);
 				user = new google.maps.LatLng(userLat, userLng);
-				initMap(jsonResponse);
+				initMap(vehicles);
 			}
 		};
 	});
@@ -40,6 +44,18 @@ function initMap(jsonResponse) {
 		icon: 'userpin.png'
 	});
 	userMarker.setMap(map);
+	
+	var features = [];
+	
+	for (var i = 0; i < vehicles.length; i++) {
+		var vehiclePos = new google.maps.LatLng(vehicles[i]["lat"],  vehicles[i]["lng"]);
+          var marker = new google.maps.Marker({
+            position: features[i].position,
+            icon: 'car.png',
+            map: map
+          });
+          marker.setMap(map);
+          };
 
 
 
