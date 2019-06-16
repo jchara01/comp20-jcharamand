@@ -59,14 +59,6 @@ function initMap(vehicles) {
 		var distance = calculateDistance(vehicleLat, vehicleLng);
 		if (distance <= curDistance){
 			curDistance = distance;
-			google.maps.event.addListener(userMarker, 'mouseover', function() {
-				infowindow.setContent(this.info);
-				infowindow.open(map, this);
-			});
-			google.maps.event.addListener(userMarker, 'mouseout', function() {
-				infowindow.close();
-			});
-
 			var paths = [
 				[
 				[userLat, userLng],
@@ -81,6 +73,15 @@ function initMap(vehicles) {
 				strokeWeight: 2
 			});
 			polyline.setMap(map);
+			
+			google.maps.event.addListener(userMarker, 'mouseover', function() {
+				infowindow.setContent(this.polyline);
+				infowindow.open(map, this);
+			});
+			google.maps.event.addListener(userMarker, 'mouseout', function() {
+				infowindow.close();
+			});
+
 		}
 
 		
