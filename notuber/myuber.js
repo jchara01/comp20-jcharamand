@@ -15,10 +15,6 @@ xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
 var infowindow = new google.maps.InfoWindow();
 
-function init() {
-	var body = document.getElementById('map');
-	getUserLocation();
-}
 
 function getUserLocation() {
 	navigator.geolocation.getCurrentPosition(function(position) {
