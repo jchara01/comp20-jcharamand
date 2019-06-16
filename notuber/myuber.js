@@ -33,7 +33,7 @@ function getUserLocation() {
 
 
 
-function initMap(jsonResponse) {
+function initMap(vehicles) {
         map = new google.maps.Map(document.getElementById('map'), {
           center: user,
           zoom: 16
