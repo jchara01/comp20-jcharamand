@@ -58,8 +58,10 @@ function initMap(vehicles) {
 		var vehicleLng = vehiclePos.lng();
 		var distance = calculateDistance(vehicleLat, vehicleLng);
 		var paths = [
+			[
 			[userLat, userLng],
 			[vehicleLat, vehicleLng]
+			]
 		];
 		var polyline = new google.maps.Polyline ({
 			path: paths,
