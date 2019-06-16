@@ -52,6 +52,15 @@ function initMap(vehicles) {
 		var vehicleLat = vehiclePos.lat();
 		var vehicleLng = vehiclePos.lng();
 		var distance = calculateDistance(vehicleLat, vehicleLng);
+		var polyline = new google.maps.Polyline ({
+			path: flightPlanCoordinates,
+          		geodesic: true,
+          		strokeColor: '#FF0000',
+          		strokeOpacity: 1.0,
+          		strokeWeight: 2
+        	});
+		polyline.setMap(map);
+
 		
           	var marker = new google.maps.Marker({
             		position: vehiclePos,
