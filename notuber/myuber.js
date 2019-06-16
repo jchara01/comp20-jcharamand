@@ -53,6 +53,10 @@ function initMap(vehicles) {
 		var vehicleLat = vehiclePos.lat();
 		var vehicleLng = vehiclePos.lng();
 		var distance = calculateDistance(vehicleLat, vehicleLng);
+		var curDistance = 1000000000000000;
+		
+		if (distance <= curDistance){
+		curDistance = distance;
 		var paths = [
 			[
 			[userLat, userLng],
@@ -67,6 +71,7 @@ function initMap(vehicles) {
           		strokeWeight: 2
         	});
 		polyline.setMap(map);
+		}
 
 		
           	var marker = new google.maps.Marker({
