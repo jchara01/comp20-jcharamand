@@ -15,6 +15,8 @@ xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
 var infowindow = new google.maps.InfoWindow();
 
+var curDistance = 1000000000000000;
+
 
 function getUserLocation() {
 	navigator.geolocation.getCurrentPosition(function(position) {
@@ -53,7 +55,6 @@ function initMap(vehicles) {
 		var vehicleLat = vehiclePos.lat();
 		var vehicleLng = vehiclePos.lng();
 		var distance = calculateDistance(vehicleLat, vehicleLng);
-		var curDistance = 1000000000000000;
 		
 		if (distance <= curDistance){
 		curDistance = distance;
