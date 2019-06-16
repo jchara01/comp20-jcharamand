@@ -44,9 +44,23 @@ function initMap(vehicles) {
 	
 	var userMarker = new google.maps.Marker({
 		position: user,
-		icon: 'userpin.png'
+		icon: 'userpin.png',
 	});
 	userMarker.setMap(map);
+	
+	for (var i = 0; i < vehicles.length; i++) {
+		var distance = calculateDistance(vehicleLat, vehicleLng);
+		if (distance <= curDistance){
+			curDistance = distance;
+			google.maps.event.addListener(userMarker, 'mouseover', function() {
+				infowindow.setContent(this.info);
+				infowindow.open(map, this);
+			});
+			google.maps.event.addListener(userMarker, 'mouseout', function() {
+				infowindow.close();
+			});
+		}
+	}
 	
 	var features = [];
 	
@@ -54,24 +68,23 @@ function initMap(vehicles) {
 		var vehiclePos = new google.maps.LatLng(vehicles[i]["lat"],  vehicles[i]["lng"]);
 		var vehicleLat = vehiclePos.lat();
 		var vehicleLng = vehiclePos.lng();
-		var distance = calculateDistance(vehicleLat, vehicleLng);
 		
 		if (distance <= curDistance){
-		curDistance = distance;
-		var paths = [
-			[
-			[userLat, userLng],
-			[vehicleLat, vehicleLng]
-			]
-		];
-		var polyline = new google.maps.Polyline ({
-			path: paths,
-          		geodesic: true,
-          		strokeColor: '#FF0000',
-          		strokeOpacity: 1.0,
-          		strokeWeight: 2
-        	});
-		polyline.setMap(map);
+			curDistance = distance;
+			var paths = [
+				[
+				[userLat, userLng],
+				[vehicleLat, vehicleLng]
+				]
+			];
+			var polyline = new google.maps.Polyline ({
+				path: paths,
+				geodesic: true,
+				strokeColor: '#FF0000',
+				strokeOpacity: 1.0,
+				strokeWeight: 2
+			});
+			polyline.setMap(map);
 		}
 
 		
