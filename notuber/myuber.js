@@ -51,6 +51,7 @@ function initMap(vehicles) {
 		var vehiclePos = new google.maps.LatLng(vehicles[i]["lat"],  vehicles[i]["lng"]);
 		var vehicleLat = vehiclePos.lat();
 		var vehicleLng = vehiclePos.lng();
+		var distance = calculateDistance(vehicleLat, vehicleLng);
 		
           	var marker = new google.maps.Marker({
             		position: vehiclePos,
@@ -64,7 +65,7 @@ function initMap(vehicles) {
 }
 
 function calculateDistance(vehicleLat, vehicleLng) {
-	ar R = 6371e3; // metres
+	ar R = 6371e3;
 	var lat1 = userLat.toRadians();
 	var lat2 = vehicleLat.toRadians();
 	var lon1 = userLng.toRadians();
@@ -79,4 +80,6 @@ function calculateDistance(vehicleLat, vehicleLng) {
 	var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
 
 	var d = R * c;
+	
+	return d.toFixed(3);
 }
