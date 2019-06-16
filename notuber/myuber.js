@@ -8,7 +8,8 @@ var params;
 var vehicles;
 
 var xhr = new XMLHttpRequest();
-xhr.open("POST", "https://hans-moleman.herokuapp.com/rides", true);
+var url = "https://hans-moleman.herokuapp.com/rides";
+xhr.open("POST", url, true);
 xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
 
