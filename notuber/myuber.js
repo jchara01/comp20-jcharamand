@@ -27,7 +27,7 @@ function getUserLocation() {
 				user = new google.maps.LatLng(userLat, userLng);
 				initMap(vehicles);
 			}
-		};
+		}
 	});
 }
 
