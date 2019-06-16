@@ -68,7 +68,7 @@ function calculateDistance(vehicleLat, vehicleLng) {
 	var lat1 = userLat.toRadians();
 	var lat2 = vehicleLat.toRadians();
 	var lon1 = userLng.toRadians();
-	var lon2 = vehicleLng.toRadians;
+	var lon2 = vehicleLng.toRadians();
 	
 	var Δφ = (lat2-lat1).toRadians();
 	var Δλ = (lon2-lon1).toRadians();
