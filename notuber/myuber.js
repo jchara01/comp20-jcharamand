@@ -49,44 +49,18 @@ function initMap(jsonResponse) {
 	
 	for (var i = 0; i < vehicles.length; i++) {
 		var vehiclePos = new google.maps.LatLng(vehicles[i]["lat"],  vehicles[i]["lng"]);
-          var marker = new google.maps.Marker({
-            position: features[i].position,
-            icon: 'car.png',
-            map: map
-          });
-          marker.setMap(map);
-          };
+		var vehicleLat = vehiclePos.lat();
+		var vehicleLng = vehiclePos.lng();
+		
+          	var marker = new google.maps.Marker({
+            		position: vehiclePos,
+            		icon: 'car.png',
+			title: vehicles[i]["username"],
+           		map: map
+          	});
+         	marker.setMap(map);
+          	};
+	}
 
-
-
-        var features = [
-        {
-                position: new google.maps.LatLng(42.3453, -71.0464)
-        },
-        {
-                position: new google.maps.LatLng(42.3662, -71.0621)
-        },
-        {
-                position: new google.maps.LatLng(42.3603, -71.0547)
-        },
-        {
-                position: new google.maps.LatLng(42.3472, -71.0802)
-        },
-        {
-                position: new google.maps.LatLng(42.3663, -71.0544)
-        },
-        {
-                position: new google.maps.LatLng(42.3542, -71.0704)
-        }
-        ];
-
-        for (var i = 0; i < features.length; i++) {
-          var marker = new google.maps.Marker({
-            position: features[i].position,
-            icon: 'car.png',
-            map: map
-          });
-          marker.setMap(map);
-          };
 
 }
