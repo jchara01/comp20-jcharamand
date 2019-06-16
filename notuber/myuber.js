@@ -59,7 +59,7 @@ function initMap(vehicles) {
            		map: map
           	});
          	vehicles.push(marker);
-          	};
+          	vehicles[i].setMap(map);
 	}
 
 
