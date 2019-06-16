@@ -48,7 +48,14 @@ function initMap(vehicles) {
 	});
 	userMarker.setMap(map);
 	
+	
+	var features = [];
+	
 	for (var i = 0; i < vehicles.length; i++) {
+		var vehiclePos = new google.maps.LatLng(vehicles[i]["lat"],  vehicles[i]["lng"]);
+		var vehicleLat = vehiclePos.lat();
+		var vehicleLng = vehiclePos.lng();
+		
 		var distance = calculateDistance(vehicleLat, vehicleLng);
 		if (distance <= curDistance){
 			curDistance = distance;
@@ -59,18 +66,7 @@ function initMap(vehicles) {
 			google.maps.event.addListener(userMarker, 'mouseout', function() {
 				infowindow.close();
 			});
-		}
-	}
-	
-	var features = [];
-	
-	for (var i = 0; i < vehicles.length; i++) {
-		var vehiclePos = new google.maps.LatLng(vehicles[i]["lat"],  vehicles[i]["lng"]);
-		var vehicleLat = vehiclePos.lat();
-		var vehicleLng = vehiclePos.lng();
-		
-		if (distance <= curDistance){
-			curDistance = distance;
+
 			var paths = [
 				[
 				[userLat, userLng],
