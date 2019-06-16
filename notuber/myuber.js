@@ -72,8 +72,8 @@ function initMap(vehicles) {
 			title: vehicles[i]["username"],
            		map: map
           	});
-         	vehicles.push(marker);
-          	vehicles[i].setMap(map);
+         	features.push(marker);
+          	features[i].setMap(map);
 	}
 }
 
