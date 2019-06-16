@@ -20,7 +20,7 @@ function getUserLocation() {
 	navigator.geolocation.getCurrentPosition(function(position) {
 		userLat = position.coords.latitude;
 		userLng = position.coords.longitude;
-		params = "username=iXay9qIa&lat=" + userLat + "&lng=" + userLng;
+		params = 'username=iXay9qIa&lat=' + userLat + '&lng=' + userLng;
                 xhr.send(params);
 		xhr.onreadystatechange = function() {
 			if (xhr.readyState == 4 && xhr.status == 200) {
