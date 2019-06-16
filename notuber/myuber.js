@@ -2,8 +2,8 @@ var map;
 
 var user;
 var userMarker;
-var userLat;
-var userLng;
+var userLat = 0;
+var userLng = 0;
 var params;
 var vehicles;
 
