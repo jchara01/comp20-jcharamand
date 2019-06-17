@@ -25,26 +25,9 @@ function getUserLocation() {
 			if (xhr.readyState == 4 && xhr.status == 200) {
 				vehicles = JSON.parse(xhr.responseText);
 				user = new google.maps.LatLng(userLat, userLng);
-				initMap(vehicles);
 			}
 		}
 	});
-}
-
-
-
-function initMap(vehicles) {
-        map = new google.maps.Map(document.getElementById('map'), {
-          center: user,
-          zoom: 16
-        });
-	
-	var userMarker = new google.maps.Marker({
-		position: user,
-		icon: 'userpin.png',
-	});
-	userMarker.setMap(map);
-	
 	
 	var infowindow = new google.maps.InfoWindow();
 	
@@ -93,6 +76,22 @@ function initMap(vehicles) {
          	features.push(marker);
           	features[i].setMap(map);
 	}
+}
+
+
+
+function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: user,
+          zoom: 16
+        });
+	
+	var userMarker = new google.maps.Marker({
+		position: user,
+		icon: 'userpin.png',
+	});
+	userMarker.setMap(map);
+	
 }
 
 function calculateDistance(vehicleLat, vehicleLng) {
