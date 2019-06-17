@@ -52,6 +52,16 @@ window.onload = function getUserLocation() {
 						[vehicleLat, vehicleLng]
 						]
 					];
+					var latLngBounds = new google.maps.LatLngBounds();
+					for(var i = 0; i < paths.length; i++) {
+					  latLngBounds.extend(paths[i]);
+					  // Place the marker
+					  new google.maps.Marker({
+					    map: map,
+					    position: paths[i],
+					    title: "Point " + (i + 1)
+					  });
+					}
 					var polyline = new google.maps.Polyline ({
 						path: paths,
 						geodesic: true,
@@ -59,6 +69,7 @@ window.onload = function getUserLocation() {
 						strokeOpacity: 1.0,
 						strokeWeight: 2
 					});
+					map.fitBounds(latLngBounds);
 					polyline.setMap(map);
 
 					google.maps.event.addListener(userMarker, 'mouseover', function() {
