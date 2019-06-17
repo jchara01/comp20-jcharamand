@@ -95,13 +95,13 @@ function initMap() {
 
 function calculateDistance(vehicleLat, vehicleLng) {
 	var R = 6371e3;
-	var lat1 = userLat.toRadians();
-	var lat2 = vehicleLat.toRadians();
-	var lon1 = userLng.toRadians();
-	var lon2 = vehicleLng.toRadians();
+	var lat1 = toRadians(userLat);
+	var lat2 = toRadians(vehicleLat);
+	var lon1 = toRadians(userLng);
+	var lon2 = toRadians(vehicleLng);
 	
-	var Δφ = (lat2-lat1).toRadians();
-	var Δλ = (lon2-lon1).toRadians();
+	var Δφ = lat2-lat1;
+	var Δλ = lon2-lon1;
 
 	var a = Math.sin(Δφ/2) * Math.sin(Δφ/2) +
         	Math.cos(lat1) * Math.cos(lat2) *
@@ -112,7 +112,7 @@ function calculateDistance(vehicleLat, vehicleLng) {
 	
 	return d.toFixed(3);
 	
-	function toRadians() {
+	function toRadians(x) {
 		return x * (Math.PI) / 180;
 	}
 }
