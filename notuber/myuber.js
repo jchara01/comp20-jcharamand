@@ -26,56 +26,56 @@ function getUserLocation() {
 				vehicles = JSON.parse(xhr.responseText);
 				user = new google.maps.LatLng(userLat, userLng);
 			}
+			var infowindow = new google.maps.InfoWindow();
+	
+			var features = [];
+
+			for (var i = 0; i < vehicles.length; i++) {
+				var vehiclePos = new google.maps.LatLng(vehicles[i]["lat"],  vehicles[i]["lng"]);
+				var vehicleLat = vehiclePos.lat();
+				var vehicleLng = vehiclePos.lng();
+
+				var distance = calculateDistance(vehicleLat, vehicleLng);
+				if (distance <= curDistance){
+					curDistance = distance;
+					var paths = [
+						[
+						[userLat, userLng],
+						[vehicleLat, vehicleLng]
+						]
+					];
+					var polyline = new google.maps.Polyline ({
+						path: paths,
+						geodesic: true,
+						strokeColor: '#FF0000',
+						strokeOpacity: 1.0,
+						strokeWeight: 2
+					});
+					polyline.setMap(map);
+
+					google.maps.event.addListener(userMarker, 'mouseover', function() {
+						infowindow.setContent(this.polyline);
+						infowindow.open(map, this);
+					});
+					google.maps.event.addListener(userMarker, 'mouseout', function() {
+						infowindow.close();
+					});
+
+				}
+
+
+				var marker = new google.maps.Marker({
+					position: vehiclePos,
+					icon: 'car.png',
+					title: vehicles[i]["username"],
+					map: map
+				});
+				features.push(marker);
+				features[i].setMap(map);
+			}
 		}
 	});
 	
-	var infowindow = new google.maps.InfoWindow();
-	
-	var features = [];
-	
-	for (var i = 0; i < vehicles.length; i++) {
-		var vehiclePos = new google.maps.LatLng(vehicles[i]["lat"],  vehicles[i]["lng"]);
-		var vehicleLat = vehiclePos.lat();
-		var vehicleLng = vehiclePos.lng();
-		
-		var distance = calculateDistance(vehicleLat, vehicleLng);
-		if (distance <= curDistance){
-			curDistance = distance;
-			var paths = [
-				[
-				[userLat, userLng],
-				[vehicleLat, vehicleLng]
-				]
-			];
-			var polyline = new google.maps.Polyline ({
-				path: paths,
-				geodesic: true,
-				strokeColor: '#FF0000',
-				strokeOpacity: 1.0,
-				strokeWeight: 2
-			});
-			polyline.setMap(map);
-			
-			google.maps.event.addListener(userMarker, 'mouseover', function() {
-				infowindow.setContent(this.polyline);
-				infowindow.open(map, this);
-			});
-			google.maps.event.addListener(userMarker, 'mouseout', function() {
-				infowindow.close();
-			});
-
-		}
-
-		
-          	var marker = new google.maps.Marker({
-            		position: vehiclePos,
-            		icon: 'car.png',
-			title: vehicles[i]["username"],
-           		map: map
-          	});
-         	features.push(marker);
-          	features[i].setMap(map);
-	}
 }
 
 
