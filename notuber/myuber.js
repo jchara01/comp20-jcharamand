@@ -12,9 +12,6 @@ var url = "https://hans-moleman.herokuapp.com/rides";
 xhr.open("POST", url, true);
 xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
-
-var infowindow = new google.maps.InfoWindow();
-
 var curDistance = 1000000000000000;
 
 
@@ -48,6 +45,8 @@ function initMap(vehicles) {
 	});
 	userMarker.setMap(map);
 	
+	
+	var infowindow = new google.maps.InfoWindow();
 	
 	var features = [];
 	
