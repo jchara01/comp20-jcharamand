@@ -15,7 +15,7 @@ xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 var curDistance = 1000000000000000;
 
 
-function getUserLocation() {
+window.onload = function getUserLocation() {
 	navigator.geolocation.getCurrentPosition(function(position) {
 		userLat = position.coords.latitude;
 		userLng = position.coords.longitude;
@@ -34,6 +34,14 @@ function getUserLocation() {
 				var vehiclePos = new google.maps.LatLng(vehicles[i]["lat"],  vehicles[i]["lng"]);
 				var vehicleLat = vehiclePos.lat();
 				var vehicleLng = vehiclePos.lng();
+				var marker = new google.maps.Marker({
+					position: vehiclePos,
+					icon: 'car.png',
+					title: vehicles[i]["username"],
+					map: map
+				});
+				features.push(marker);
+				features[i].setMap(map);
 
 				var distance = calculateDistance(vehicleLat, vehicleLng);
 				if (distance <= curDistance){
@@ -63,15 +71,6 @@ function getUserLocation() {
 
 				}
 
-
-				var marker = new google.maps.Marker({
-					position: vehiclePos,
-					icon: 'car.png',
-					title: vehicles[i]["username"],
-					map: map
-				});
-				features.push(marker);
-				features[i].setMap(map);
 			}
 		}
 	});
@@ -112,4 +111,9 @@ function calculateDistance(vehicleLat, vehicleLng) {
 	var d = R * c;
 	
 	return d.toFixed(3);
+	
+	function toRadians() {
+		return x * (Math.PI) / 180;
+	}
 }
+
