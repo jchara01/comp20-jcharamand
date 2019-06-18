@@ -64,7 +64,7 @@ window.onload = function getUserLocation() {
 						polyline.setMap(map);
 
 						google.maps.event.addListener(userMarker, 'mouseover', function() {
-							infowindow.setContent(this.polyline);
+							infowindow.setContent(this.curDistance);
 							infowindow.open(map, this);
 						});
 						google.maps.event.addListener(userMarker, 'mouseout', function() {
