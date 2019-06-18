@@ -50,7 +50,7 @@ window.onload = function getUserLocation() {
 					features[i].setMap(map);
 
 					var distance = calculateDistance(vehicleLat, vehicleLng);
-					if (distance <= curDistance){
+					if (distance < curDistance){
 						curDistance = distance;
 						var paths = [{lat:userLat, lng:userLng}, {lat:vehicleLat, lng:vehicleLng}];
 
