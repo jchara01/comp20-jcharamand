@@ -29,6 +29,12 @@ window.onload = function getUserLocation() {
 				var infowindow = new google.maps.InfoWindow();
 
 				var features = [];
+				
+				var userMarker = new google.maps.Marker({
+					position: user,
+					icon: 'userpin.png',
+				});
+				userMarker.setMap(map);
 
 				for (var i = 0; i < vehicles.length; i++) {
 					var vehiclePos = new google.maps.LatLng(vehicles[i]["lat"],  vehicles[i]["lng"]);
@@ -57,12 +63,6 @@ window.onload = function getUserLocation() {
 							strokeWeight: 2
 						});
 						polyline.setMap(map);
-						
-						var userMarker = new google.maps.Marker({
-							position: user,
-							icon: 'userpin.png',
-						});
-						userMarker.setMap(map);
 
 						google.maps.event.addListener(userMarker, 'mouseover', function() {
 							infowindow.setContent(this.curDistance);
