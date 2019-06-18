@@ -19,22 +19,22 @@ window.onload = function getUserLocation() {
 	navigator.geolocation.getCurrentPosition(function(position) {
 		userLat = position.coords.latitude;
 		userLng = position.coords.longitude;
+		user = new google.maps.LatLng(userLat, userLng);
+		userMarker = new google.maps.Marker({
+			position: user,
+			icon: 'userpin.png',
+		});
+		userMarker.setMap(map);
+		map.panTo(user);
 		params = 'username=iXay9qIa&lat=' + userLat + '&lng=' + userLng;
                 xhr.send(params);
 		xhr.onreadystatechange = function() {
 			if (xhr.readyState == 4 && xhr.status == 200) {
 				vehicles = JSON.parse(xhr.responseText);
-				user = new google.maps.LatLng(userLat, userLng);
 			
 				var infowindow = new google.maps.InfoWindow();
 
 				var features = [];
-				
-				userMarker = new google.maps.Marker({
-					position: user,
-					icon: 'userpin.png',
-				});
-				userMarker.setMap(map);
 
 				for (var i = 0; i < vehicles.length; i++) {
 					var vehiclePos = new google.maps.LatLng(vehicles[i]["lat"],  vehicles[i]["lng"]);
