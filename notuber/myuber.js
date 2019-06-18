@@ -73,7 +73,6 @@ window.onload = function getUserLocation() {
 
 					}
 				}
-
 			}
 		}
 	});
