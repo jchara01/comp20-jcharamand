@@ -57,6 +57,12 @@ window.onload = function getUserLocation() {
 							strokeWeight: 2
 						});
 						polyline.setMap(map);
+						
+						var userMarker = new google.maps.Marker({
+							position: user,
+							icon: 'userpin.png',
+						});
+						userMarker.setMap(map);
 
 						google.maps.event.addListener(userMarker, 'mouseover', function() {
 							infowindow.setContent(this.curDistance);
@@ -81,12 +87,6 @@ function initMap() {
           center: user,
           zoom: 16
         });
-	
-	var userMarker = new google.maps.Marker({
-		position: user,
-		icon: 'userpin.png',
-	});
-	userMarker.setMap(map);
 	
 }
 
