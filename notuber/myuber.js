@@ -46,12 +46,7 @@ window.onload = function getUserLocation() {
 					var distance = calculateDistance(vehicleLat, vehicleLng);
 					if (distance <= curDistance){
 						curDistance = distance;
-						var paths = [
-							[
-							[userLat, userLng],
-							[vehicleLat, vehicleLng]
-							]
-						];
+						var paths = [{lat:userLat, lng:userLng}, {lat:vehicleLat, lng:vehicleLng}];
 
 						var polyline = new google.maps.Polyline ({
 							map: map,
