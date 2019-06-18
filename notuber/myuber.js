@@ -30,7 +30,7 @@ window.onload = function getUserLocation() {
 
 				var features = [];
 				
-				var userMarker = new google.maps.Marker({
+				userMarker = new google.maps.Marker({
 					position: user,
 					icon: 'userpin.png',
 				});
