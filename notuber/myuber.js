@@ -21,7 +21,7 @@ window.onload = function getUserLocation() {
 		userLng = position.coords.longitude;
 		user = new google.maps.LatLng(userLat, userLng);
 		userMarker = new google.maps.Marker({
-			position: user,
+			position: user
 		});
 		userMarker.setMap(map);
 		map.panTo(user);
