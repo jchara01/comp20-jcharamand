@@ -70,6 +70,14 @@ window.onload = function getUserLocation() {
 						google.maps.event.addListener(userMarker, 'mouseout', function() {
 							infowindow.close();
 						});
+						
+						google.maps.event.addListener(marker, 'mouseover', function() {
+							infowindow.setContent(this.curDistance);
+							infowindow.open(map, this);
+						});
+						google.maps.event.addListener(marker, 'mouseout', function() {
+							infowindow.close();
+						});
 
 					}
 				}
