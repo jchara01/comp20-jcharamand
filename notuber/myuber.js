@@ -63,16 +63,20 @@ window.onload = function getUserLocation() {
 						});
 						polyline.setMap(map);
 						
-						var infowindow = new google.maps.InfoWindow({
-                                                        content: curDistance
+						var userInfowindow = new google.maps.InfoWindow({
+                                                        content: "Closest driver is " + curDistance + " miles away."
+                                                });
+						
+						var driverInfowindow = new google.maps.InfoWindow({
+                                                        content: "Client is " + curDistance + " miles away."
                                                 });
 
                                                 google.maps.event.addListener(userMarker, 'mouseover', function() {
-                                                        infowindow.open(map, this);
+                                                        userInfowindow.open(map, this);
                                                 });
 
                                                 google.maps.event.addListener(marker, 'mouseover', function() {
-                                                        infowindow.open(map, this);
+                                                        driverInfowindow.open(map, this);
                                                 });
 
 					}
