@@ -75,7 +75,7 @@ window.onload = function getUserLocation() {
 				polyline.setMap(map);
 						
 				var userInfowindow = new google.maps.InfoWindow({
-                                          content: "Closest driver is " + curID + " and he is " curDistance + " miles away from you."
+                                          content: "Closest driver is " + curID + " and he is " + curDistance + " miles away from you."
                                 });
 						
 				var driverInfowindow = new google.maps.InfoWindow({
