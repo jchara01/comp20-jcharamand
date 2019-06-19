@@ -9,6 +9,7 @@ var vehicles;
 var curVehicleLat = 0;
 var curVehicleLng = 0;
 var curMarker = 0;
+var curID = 0;
 
 var xhr = new XMLHttpRequest();
 var url = "https://hans-moleman.herokuapp.com/rides";
@@ -57,6 +58,7 @@ window.onload = function getUserLocation() {
 						curVehicleLat = vehicleLat;
 						curVehicleLng = vehicleLng;
 						curMarker = marker;
+						curID = vehicles[i]["username"];
 					}
 				}
 				
@@ -73,7 +75,7 @@ window.onload = function getUserLocation() {
 				polyline.setMap(map);
 						
 				var userInfowindow = new google.maps.InfoWindow({
-                                          content: "Closest driver is " + curDistance + " miles away."
+                                          content: "Closest driver is " + curID + " and he is " curDistance + " miles away from you."
                                 });
 						
 				var driverInfowindow = new google.maps.InfoWindow({
