@@ -6,6 +6,8 @@ var userLat = 0;
 var userLng = 0;
 var params;
 var vehicles;
+var curVehicleLat = 0;
+var curVehicleLng = 0;
 
 var xhr = new XMLHttpRequest();
 var url = "https://hans-moleman.herokuapp.com/rides";
@@ -51,39 +53,40 @@ window.onload = function getUserLocation() {
 					var distance = calculateDistance(vehicleLat, vehicleLng);
 					if (distance < curDistance){
 						curDistance = distance;
-						var paths = [{lat:userLat, lng:userLng}, {lat:vehicleLat, lng:vehicleLng}];
-
-						var polyline = new google.maps.Polyline ({
-							map: map,
-							path: paths,
-							geodesic: true,
-							strokeColor: '#FF0000',
-							strokeOpacity: 1.0,
-							strokeWeight: 2
-						});
-						polyline.setMap(map);
-						
-						var userInfowindow = new google.maps.InfoWindow({
-                                                        content: "Closest driver is " + curDistance + " miles away."
-                                                });
-						
-						var driverInfowindow = new google.maps.InfoWindow({
-                                                        content: "Client is " + curDistance + " miles away."
-                                                });
-
-                                                google.maps.event.addListener(userMarker, 'mouseover', function() {
-                                                        userInfowindow.open(map, this);
-                                                });
-
-                                                google.maps.event.addListener(marker, 'mouseover', function() {
-                                                        driverInfowindow.open(map, this);
-                                                });
-
-					}
-					else {
-						curDistance = curDistance;
+						curVehicleLat = vehicleLat;
+						curVehicleLng = vehicleLng;
 					}
 				}
+				
+				var paths = [{lat:userLat, lng:userLng}, {lat:curVehicleLat, lng:curVehicleLng}];
+
+				var polyline = new google.maps.Polyline ({
+					map: map,
+					path: paths,
+					geodesic: true,
+					strokeColor: '#FF0000',
+					strokeOpacity: 1.0,
+					strokeWeight: 2
+				});
+				polyline.setMap(map);
+						
+				var userInfowindow = new google.maps.InfoWindow({
+                                          content: "Closest driver is " + curDistance + " miles away."
+                                });
+						
+				var driverInfowindow = new google.maps.InfoWindow({
+                                          content: "Client is " + curDistance + " miles away."
+                                });
+
+                                google.maps.event.addListener(userMarker, 'mouseover', function() {
+                                          userInfowindow.open(map, this);
+                                });
+
+                                google.maps.event.addListener(marker, 'mouseover', function() {
+                                          driverInfowindow.open(map, this);
+                                });
+
+					
 			}
 		}
 	});
