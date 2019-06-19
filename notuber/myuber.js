@@ -117,7 +117,10 @@ function calculateDistance(vehicleLat, vehicleLng) {
 
 	var d = R * c;
 	
-	return d.toFixed(3);
+	var D = d * 0.62137;
+	
+	return D.toFixed(3);
+	
 	
 	function toRadians(x) {
 		return x * (Math.PI) / 180;
