@@ -80,6 +80,9 @@ window.onload = function getUserLocation() {
 						});
 
 					}
+					else {
+						curDistance = curDistance;
+					}
 				}
 			}
 		}
