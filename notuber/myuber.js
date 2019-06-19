@@ -62,22 +62,18 @@ window.onload = function getUserLocation() {
 							strokeWeight: 2
 						});
 						polyline.setMap(map);
-
-						google.maps.event.addListener(userMarker, 'mouseover', function() {
-							infowindow.setContent(this.curDistance);
-							infowindow.open(map, this);
-						});
-						google.maps.event.addListener(userMarker, 'mouseout', function() {
-							infowindow.close();
-						});
 						
-						google.maps.event.addListener(marker, 'mouseover', function() {
-							infowindow.setContent(this.curDistance);
-							infowindow.open(map, this);
-						});
-						google.maps.event.addListener(marker, 'mouseout', function() {
-							infowindow.close();
-						});
+						var infowindow = new google.maps.InfoWindow({
+                                                        content: curDistance
+                                                });
+
+                                                google.maps.event.addListener(userMarker, 'mouseover', function() {
+                                                        infowindow.open(map, this);
+                                                });
+
+                                                google.maps.event.addListener(marker, 'mouseover', function() {
+                                                        infowindow.open(map, this);
+                                                });
 
 					}
 					else {
