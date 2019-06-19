@@ -8,6 +8,7 @@ var params;
 var vehicles;
 var curVehicleLat = 0;
 var curVehicleLng = 0;
+var curMarker = 0;
 
 var xhr = new XMLHttpRequest();
 var url = "https://hans-moleman.herokuapp.com/rides";
@@ -55,6 +56,7 @@ window.onload = function getUserLocation() {
 						curDistance = distance;
 						curVehicleLat = vehicleLat;
 						curVehicleLng = vehicleLng;
+						curMarker = marker;
 					}
 				}
 				
@@ -82,7 +84,7 @@ window.onload = function getUserLocation() {
                                           userInfowindow.open(map, this);
                                 });
 
-                                google.maps.event.addListener(marker, 'mouseover', function() {
+                                google.maps.event.addListener(curMarker, 'mouseover', function() {
                                           driverInfowindow.open(map, this);
                                 });
 
