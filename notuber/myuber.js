@@ -97,7 +97,7 @@ function initMap() {
 }
 
 function calculateDistance(vehicleLat, vehicleLng) {
-	var R = 6371e3;
+	var R = 6371;
 	var lat1 = toRadians(userLat);
 	var lat2 = toRadians(vehicleLat);
 	var lon1 = toRadians(userLng);
