@@ -12,7 +12,7 @@ var curMarker = 0;
 var curID = 0;
 
 var xhr = new XMLHttpRequest();
-var url = "https://hans-moleman.herokuapp.com/rides";
+var url = "https://cryptic-scrubland-69367.herokuapp.com/rides";
 xhr.open("POST", url, true);
 xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
