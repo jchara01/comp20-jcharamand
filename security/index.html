@@ -57,7 +57,6 @@
           successfully trusted your random domain to get the CORS responses. </p>
         <br /> 
          <p> Severity: High. </p>
-         <br />
         <p> Attacks with several goals could take place: the first one could be the exploitation of Cross-Site Request Forgery;
         CSRF refers to an instance where the attacker can send a complex set of requests to the server even with session cookies,
         as they implement the whole attack in JavaScript so that when the user loads the attacker’s malicious website, the JavaScript 
@@ -67,8 +66,9 @@
        
     </ol>
       <br />
-    <p> Solution: enable authentication on the resources accessed and require that the user/application credentials be passed 
-      with the CORS requests. </p> 
+    <p> Solution: To implement CORS securely, it would be ideal to associate a validation list with Access-Control-Allow-Origin 
+      that identifies which specific domains can access resources. Then the application can validate against this list 
+      when a domain requests access.</p> 
     
       <h2>Conclusion</h2>
       <p>
