@@ -46,8 +46,19 @@
       <ol> 
         <li> Query Injection </li>
         <p> </p>
+        
+        
         <li> Injection of HTML and Javascript into client-side </li>
-        <p>  </p>
+        <p> Cross site scripting (XSS) is a common attack vector that injects malicious code (JavaScript or HTML) into 
+          a vulnerable web application.  </p>
+        <br /> 
+         <p> Severity: High. </p>
+        <p> XSS differs from other web attack vectors in that it does not 
+          directly target the application itself. Instead, the users of the web application are the ones at risk.</p> 
+        <br />
+    <p> Solution: Common escape functions can be used to negate the usage of characters like <, >, and / </p> 
+        
+        
         <li> CORS vulnerability </li>
         <img src="CORSattack.jpg">
         <p> As one can see, we have a '*' wildcard as value of the Access-Control-Allow-Origin header in response and 
