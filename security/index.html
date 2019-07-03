@@ -45,7 +45,24 @@
       <h2>Issues Found</h2>
       <ol> 
         <li> Query Injection </li>
-        <p> </p>
+        <img src="QUERYin.jpg">
+        <p> As one can see, we have a '*' wildcard as value of the Access-Control-Allow-Origin header in response and 
+          it means all domains are allowed to access the server response and it is an insecure configuration for CORS.
+          There is another type of CORS attack. If a random domain is sent as value of origin header in request and 
+          one gets the same domain name as value of the Access-Control-Allow-Origin header in response, it means a random
+          domain was successfully trusted to get the CORS responses. </p>
+        <br /> 
+         <p> Severity: High. </p>
+        <p> Attacks with several goals could take place: the first one could be the exploitation of Cross-Site Request Forgery;
+        CSRF refers to an instance where the attacker can send a complex set of requests to the server even with session cookies,
+        as they implement the whole attack in JavaScript so that when the user loads the attacker’s malicious website, the JavaScript 
+        can immediately start to send requests to the target. The second goal of the attack could be to interact  with the internal 
+        network. If the user loads the attacker’s website, that essentially means that the attacker can execute 
+        code in the internal network and simply attack a known internal service which they have no access to.</p> 
+        <br />
+    <p> Solution: To implement CORS securely, it would be ideal to associate a validation list with Access-Control-Allow-Origin 
+      that identifies which specific domains can access resources. Then the application can validate against this list 
+      when a domain requests access.</p> 
         
         
         <li> Injection of HTML and Javascript into client-side </li>
@@ -57,17 +74,21 @@
         <p> XSS differs from other web attack vectors in that it does not 
           directly target the application itself. Instead, the users of the web application are the ones at risk.</p> 
         <br />
-    <p> Solution: Escape functions can be used to negate the usage of characters like <, >, and / such that if these characters 
-      were to appear, then an XSS attempt would be stopped. For example, it could be possible to include a caret inside of a
-      character class in  such a way   [^\W]   where 
-      <ul>
-        <li>
-      ^ - Matches anything NOT in the character class 
-        </li>
-        <li>
-      \W - matches non-word characters (a word character would be defined as a-z, A-Z, 0-9, and underscore).</p>
-      </li>
-        </ul>
+    <p> Solution: Escape functions can be used to negate the usage of characters like (&, <, >, ", ', /) to prevent switching into any execution 
+      context, such as script, style, or event handlers. Using hex entities is recommended in the spec. For example, it could be possible to 
+      make these substitutions: <br/>
+      & --> &amp;
+      <br/>
+     < --> &lt;
+       <br/>
+      > --> &gt;
+       <br/>
+    " --> &quot;
+       <br/>
+   ' --> &#x27;
+       <br/>
+    / --> &#x2F;
+       <br/>
     </p>
         
         
