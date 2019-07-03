@@ -46,23 +46,15 @@
       <ol> 
         <li> Query Injection </li>
         <img src="QUERYin.jpg">
-        <p> As one can see, we have a '*' wildcard as value of the Access-Control-Allow-Origin header in response and 
-          it means all domains are allowed to access the server response and it is an insecure configuration for CORS.
-          There is another type of CORS attack. If a random domain is sent as value of origin header in request and 
-          one gets the same domain name as value of the Access-Control-Allow-Origin header in response, it means a random
-          domain was successfully trusted to get the CORS responses. </p>
+        <p> It consists of querying a NoSQL database (such as, in our case, MongoDB) by using function such as "request.query.username"
+        to gain unauthorized access  to information within the database. </p>
         <br /> 
          <p> Severity: High. </p>
-        <p> Attacks with several goals could take place: the first one could be the exploitation of Cross-Site Request Forgery;
-        CSRF refers to an instance where the attacker can send a complex set of requests to the server even with session cookies,
-        as they implement the whole attack in JavaScript so that when the user loads the attacker’s malicious website, the JavaScript 
-        can immediately start to send requests to the target. The second goal of the attack could be to interact  with the internal 
-        network. If the user loads the attacker’s website, that essentially means that the attacker can execute 
-        code in the internal network and simply attack a known internal service which they have no access to.</p> 
+        <p> The attacker is enabled access to unauthorized data from the server. The server is only meant to provide the
+        usernames of the  passenger and the  vehicle that are authorized in the server, which could be  bypassed by the attacker.</p> 
         <br />
-    <p> Solution: To implement CORS securely, it would be ideal to associate a validation list with Access-Control-Allow-Origin 
-      that identifies which specific domains can access resources. Then the application can validate against this list 
-      when a domain requests access.</p> 
+    <p> Solution: Ensuring that the queried JSON object uniquely contains a value that is a string and not another JSON object, considering that
+      "request.query" is a JavaScript object.</p> 
         
         
         <li> Injection of HTML and Javascript into client-side </li>
