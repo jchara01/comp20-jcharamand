@@ -50,11 +50,11 @@
         <p>  </p>
         <li> CORS vulnerability </li>
         <img src="CORSattack.jpg">
-        <p> As you see, we have a '*' wildcard as value of the Access-Control-Allow-Origin header in response and 
+        <p> As one can see, we have a '*' wildcard as value of the Access-Control-Allow-Origin header in response and 
           it means all domains are allowed to access the server response and it is an insecure configuration for CORS.
-          There is another type of CORS attack. If you send a random domain as value of origin header in request and 
-          you get the same domain name as value of the Access-Control-Allow-Origin header in response, it mean you 
-          successfully trusted your random domain to get the CORS responses. </p>
+          There is another type of CORS attack. If a random domain is sent as value of origin header in request and 
+          one gets the same domain name as value of the Access-Control-Allow-Origin header in response, it means a random
+          domain was successfully trusted to get the CORS responses. </p>
         <br /> 
          <p> Severity: High. </p>
         <p> Attacks with several goals could take place: the first one could be the exploitation of Cross-Site Request Forgery;
