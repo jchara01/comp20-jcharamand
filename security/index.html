@@ -56,14 +56,19 @@
           you get the same domain name as value of the Access-Control-Allow-Origin header in response, it mean you 
           successfully trusted your random domain to get the CORS responses. </p>
         <br /> 
+         <p> Severity: High. </p>
+         <br />
         <p> Attacks with several goals could take place: the first one could be the exploitation of Cross-Site Request Forgery;
         CSRF refers to an instance where the attacker can send a complex set of requests to the server even with session cookies,
         as they implement the whole attack in JavaScript so that when the user loads the attacker’s malicious website, the JavaScript 
-        can immediately start to send requests to the target.</p> 
-        <br />
-        <p> Severity: </p>
+        can immediately start to send requests to the target. The second goal of the attack could be to interact  with the internal 
+          network. If the user loads the attacker’s website, that essentially means that the attacker can execute 
+          code in the internal network and simply attack a known internal service which they have no access to..</p> 
+       
     </ol>
       <br />
+    <p> Solution: enable authentication on the resources accessed and require that the user/application credentials be passed 
+      with the CORS requests. </p> 
     
       <h2>Conclusion</h2>
       <p>
