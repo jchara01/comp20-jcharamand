@@ -49,6 +49,7 @@
         
         
         <li> Injection of HTML and Javascript into client-side </li>
+        <img src="HTMLJAVAinj.jpg">
         <p> Cross site scripting (XSS) is a common attack vector that injects malicious code (JavaScript or HTML) into 
           a vulnerable web application.  </p>
         <br /> 
@@ -56,7 +57,18 @@
         <p> XSS differs from other web attack vectors in that it does not 
           directly target the application itself. Instead, the users of the web application are the ones at risk.</p> 
         <br />
-    <p> Solution: Common escape functions can be used to negate the usage of characters like <, >, and / </p> 
+    <p> Solution: Escape functions can be used to negate the usage of characters like <, >, and / such that if these characters 
+      were to appear, then an XSS attempt would be stopped. For example, it could be possibel to include a caret inside of a
+      character class in  such a way: [^\W] where 
+      <ul>
+        <li>
+      ^ - Matches anything NOT in the character class 
+        </li>
+        <li>
+      \W - matches non-word characters (a word character would be defined as a-z, A-Z, 0-9, and underscore).</p>
+      </li>
+        </ul>
+    </p>
         
         
         <li> CORS vulnerability </li>
