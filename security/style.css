@@ -43,8 +43,7 @@ img{
     height: auto;
 }
 
-a{
-    font-size: 16px;
-    color: crimson;
+li{
+    font-weight:bold;
 }
 
